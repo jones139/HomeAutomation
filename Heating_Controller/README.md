@@ -13,7 +13,7 @@ There are three main parts to the central heating control unit:
 
 
 ## Control Panel
-  - The control panel is based around a large junction box from [Screwfix](https://www.screwfix.com/p/british-general-ip55-weatherproof-outdoor-enclosure-270mm-x-180mm-x-135mm/86625).
+  - The control panel is based around a large junction box from [Screwfix](https://www.screwfix.com/p/british-general-ip55-weatherproof-outdoor-enclosure-270mm-x-180mm-x-135mm/86625).   
   - It has four large four position selector switches from [Ebay](https://www.ebay.co.uk/itm/386674176742)
   - Uses LED based mains indicators from [Amazon](https://www.amazon.co.uk/dp/B09PFMY6YQ?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
   - The mains on/off switch is from [Amazon](https://www.amazon.co.uk/dp/B07T2RMYVW?ref=ppx_yo2ov_dt_b_fed_asin_title)
@@ -21,8 +21,9 @@ There are three main parts to the central heating control unit:
 
 
 ## Relay Board
-  - The 4 channel, ESP32 based relay board was from [Amazon](https://www.amazon.co.uk/dp/B0CJ5CZ4XR?ref=ppx_yo2ov_dt_b_fed_asin_title)
-  - It is programmed using firmware produced by EspHome - the initial programming was via a usb to serial adapter connected to the header on the board.  Subsequent reprogramming can be via Over The Air (OTA) programming by EspHome.
+  - The 4 channel, ESP32 based relay board was from [Amazon](https://www.amazon.co.uk/dp/B0CJ5CZ4XR?ref=ppx_yo2ov_dt_b_fed_asin_title).  
+  - This board was selected because it can be powered directly from 240V AC so does not require a separate power supply - but there are many similar devices available which will work the same.
+  - It is programmed using firmware produced by EspHome - the initial programming was via a usb to serial adapter connected to the header on the board (see Image below).  Subsequent reprogramming can be via Over The Air (OTA) programming by EspHome.
   - In the [Firmware](Firmware) folder you can execute 'esphome run boiler_controller.yaml' to compile and upload it (after copying secrets.yaml.template to secrets.yaml and customising it for your network settings).
 
 ![Relay Board Serial Programming](images/Relay_Board_Programming.jpg)
