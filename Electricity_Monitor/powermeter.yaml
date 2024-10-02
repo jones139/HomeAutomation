@@ -1,0 +1,69 @@
+esphome:
+  name: powermeter
+
+esp32:
+  board: esp32cam
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+  level: DEBUG
+  baud_rate: 115200
+  deassert_rts_dtr: true
+  logs:
+    led.component: WARN
+    swich.component: WARN
+
+
+
+# Enable Home Assistant API
+api:
+  password: "powermeterpasswd"
+
+ota:
+  password: "powermeterpasswd"
+
+wifi:
+  ssid: "ENNISMORE_2"
+  password: "2Da261562d"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "PowerMeterHotspot"
+    password: "powermeterpasswd"
+
+captive_portal:
+
+
+sensor:
+  - platform: pulse_counter
+    update_interval: 300s
+    pin: 14
+    name: "Elecricity_Power"
+    unit_of_measurement: 'kW'
+    accuracy_decimals: 2
+    filters:
+      - multiply: 0.06  # (60s/1000 pulses per kWh)
+
+    total:
+      name: 'Electricity_Energy'
+      unit_of_measurement: 'kWh'
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.001  # (1/1000 pulses per kWh)
+
+
+
+#switch:
+#  - platform: gpio
+#    pin:
+#      number: 33
+#      mode: output
+#    id: led
+
+#interval:
+#  - interval: 20s
+#    then:
+#      - switch.toggle: led
+#      #- logger.log: "LED toggling"

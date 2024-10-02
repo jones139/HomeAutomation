@@ -1,0 +1,101 @@
+esphome:
+  name: boilermon
+
+esp32:
+  board: esp32cam
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+  level: VERBOSE
+  baud_rate: 115200
+  deassert_rts_dtr: true
+  logs:
+    led: INFO
+    main: INFO
+    sensor: INFO
+
+
+
+# Enable Home Assistant API
+# Values such as ha_api_passwd should be defined in secrets.yaml
+api:
+  password: !secret ha_api_passwd
+
+ota:
+  password: !secret ota_passwd
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: !secret ap_ssid
+    password: !secret ap_passwd
+
+dallas:
+  - pin: 14
+    update_interval: 10s
+
+
+sensor:
+  - platform: dallas
+    address: 0xcf4b39d4457ae128
+    name: "TH01"
+  - platform: dallas
+    address: 0x427138d445492528
+    name: "TH02"
+  - platform: dallas
+    address: 0xe40dbdd44534c228
+    name: "TH03"
+  - platform: dallas
+    address: 0x92638ad4451db628 
+    name: "TH04"
+  - platform: dallas
+    address: 0xbd70fcd445345428
+    name: "TH05"
+  - platform: dallas
+    address: 0x271f24d445e87728
+    name: "TH_DHW"
+
+
+switch:
+  - platform: gpio
+    pin:
+      number: 33
+      mode: output
+    id: led
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 3
+      mode:
+        input: true
+        pullup: false
+        pulldown: true
+    id: Zone1Demand
+  - platform: gpio
+    pin:
+      number: 13
+      mode:
+        input: true
+        pullup: false
+        pulldown: true
+    id: Zone2Demand
+  - platform: gpio
+    pin:
+      number: 16
+      mode:
+        input: true
+        pullup: false
+        pulldown: true
+    id: Zone3Demand
+
+interval:
+  - interval: 2s
+    then:
+      - switch.toggle: led
+      - logger.log: "LED toggling"
