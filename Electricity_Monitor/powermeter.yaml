@@ -19,14 +19,15 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: "powermeterpasswd"
+  password: !secret api_passwd
 
 ota:
-  password: "powermeterpasswd"
+  password: !secret ota_passwd
+  platform: esphome
 
 wifi:
-  ssid: "ENNISMORE_2"
-  password: "2Da261562d"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_passwd
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
