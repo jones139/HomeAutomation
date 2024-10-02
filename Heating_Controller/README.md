@@ -25,7 +25,19 @@ There are three main parts to the central heating control unit:
   - It is programmed using firmware produced by EspHome - the initial programming was via a usb to serial adapter connected to the header on the board.  Subsequent reprogramming can be via Over The Air (OTA) programming by EspHome.
   - In the [Firmware](Firmware) folder you can execute 'esphome run boiler_controller.yaml' to compile and upload it (after copying secrets.yaml.template to secrets.yaml and customising it for your network settings).
 
+![Relay Board Serial Programming](images/Relay_Board_Programming.jpg)
+
 ## Images
 
 ### Control Switch
-![Control Switch](images/selector_switch.webp)
+
+![Control Switch](images/selector_switch.jpg)
+
+### Control Panel Front
+![Control Panel Front](images/Control_Panel_Front.jpg)
+
+### Control Panel Rear
+![Control Panel Rear](images/Control_Panel_Rear.jpg)
+
+### Internal Wiring
+![Internal Wiring](images/Control_Panel_Wiring.jpg)
