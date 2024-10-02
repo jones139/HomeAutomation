@@ -20,7 +20,9 @@ The zone valves for the central heating are controlled using a 4 channel ESP32 b
 
 ## Temperature Monitoring (Internal)
 
-## Temperature Monitoring (External)
+## Weather Station (External Monitor)
+An ESP8266 based external temperature/humidity monitor, housed in a mini Stevenson Screen.  Sends data to MQTT broker.
+[Details Here](./WeatherStation/README.md)
 
 ## Electricity Consumption Monitor
 
