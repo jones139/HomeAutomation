@@ -17,13 +17,13 @@ Copy [secrets.yaml.template](secrets.yaml.template) to secrets.yaml, and modify 
 It can then be built using 'esphome compile powermeter.yaml'
 
 # Images
-![Microcontroller Board](images/microcontroller_board.jpg)
+![Microcontroller Board](images/microcontroller_board.jpg "ESP32 Cam Microcontroller Board")
 
-![Signal Conditioning Board](images/signal_conditioning.jpg)
+![Signal Conditioning Board](images/signal_conditioning.jpg "Simple 5V-3.3V input signal conditioning board")
 
-![Assembly](images/assembly.jpg)
+![Assembly](images/assembly.jpg "Assembled Power Monitor")
 
-![Installation](images/installation.jpg)
+![Installation](images/installation.jpg "Power Monitor installed with Meter")
 
 
 
