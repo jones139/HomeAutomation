@@ -1,0 +1,65 @@
+esphome:
+  name: ac-dc-relay-x4
+  friendly_name: ac-dc-relay-x4
+
+logger:
+  level: DEBUG
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+wifi:
+  networks:
+    - ssid: !secret wifi_ssid
+      password: !secret wifi_password
+
+mqtt:
+  broker: !secret mqtt_broker
+
+
+
+output:
+  - platform: gpio
+    pin: GPIO23
+    id: led
+  - platform: gpio
+    pin: GPIO32
+    id: relay_pin_1
+  - platform: gpio
+    pin: GPIO33
+    id: relay_pin_2
+  - platform: gpio
+    pin: GPIO25
+    id: relay_pin_3
+  - platform: gpio
+    pin: GPIO26
+    id: relay_pin_4
+
+# Define the switches based on the relay pins
+switch:
+  - platform: output
+    id: relay_1
+    name: "Relay 1"
+    output: relay_pin_1
+  - platform: output
+    id: relay_2
+    name: "Relay 2"
+    output: relay_pin_2
+  - platform: output
+    id: relay_3
+    name: "Relay 3"
+    output: relay_pin_3
+  - platform: output
+    id: relay_4
+    name: "Relay 4"
+    output: relay_pin_4
+
+interval:
+  - interval: 1000ms
+    then:
+      - output.turn_on: led
+      - delay: 500ms
+      - output.turn_off: led
+
