@@ -21,9 +21,10 @@ logger:
 # Enable Home Assistant API
 # Values such as ha_api_passwd should be defined in secrets.yaml
 api:
-  password: !secret ha_api_passwd
+#  password: !secret ha_api_passwd
 
 ota:
+  platform: esphome
   password: !secret ota_passwd
 
 wifi:
@@ -35,28 +36,28 @@ wifi:
     ssid: !secret ap_ssid
     password: !secret ap_passwd
 
-dallas:
+one_wire:
   - pin: 14
-    update_interval: 10s
+    platform: gpio
 
 
 sensor:
-  - platform: dallas
+  - platform: dallas_temp
     address: 0xcf4b39d4457ae128
     name: "TH01"
-  - platform: dallas
+  - platform: dallas_temp
     address: 0x427138d445492528
     name: "TH02"
-  - platform: dallas
+  - platform: dallas_temp
     address: 0xe40dbdd44534c228
     name: "TH03"
-  - platform: dallas
+  - platform: dallas_temp
     address: 0x92638ad4451db628 
     name: "TH04"
-  - platform: dallas
+  - platform: dallas_temp
     address: 0xbd70fcd445345428
     name: "TH05"
-  - platform: dallas
+  - platform: dallas_temp
     address: 0x271f24d445e87728
     name: "TH_DHW"
 
