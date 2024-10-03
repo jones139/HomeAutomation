@@ -28,6 +28,12 @@ There are three main parts to the central heating control unit:
 
 ![Relay Board Serial Programming](images/Relay_Board_Programming.jpg)
 
+## Boiler Monitor
+  - I am using a string of Dallas DS18B20 digital thermometers to monitor the water temperatures in the various zones of our heating system.
+  - Initially I had wired it to connect to the nearest GPIO pin to the 3.3V and GND connectors.   This was GPIO34.   Unfortunately I discovered that this pin only works in input mode (see the [pinout](https://mischianti.org/esp32-wroom-32-esp32-s-flash-pinout-specs-and-ide-configuration-1/)) for the ESP32 chip on the relay board.
+  - It looks like G27 is the nearest available GPIO pin (because 32, 33, 25 and 26 are used for the relay control - so I used a bigger header connector and G27, along with integral 4k7 resistor as shown below.)
+  ![Thermometer Connection](images/thermometer_connection.jpg)
+
 ## Images
 
 ### Control Switch
