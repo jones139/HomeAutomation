@@ -117,3 +117,7 @@ sensor:
     address: 0x271f24d445e87728
     name: "TH_DHW"
 
+# Provide a means of re-booting the controller remotely
+button:
+  - platform: restart
+    name: "Reboot"
