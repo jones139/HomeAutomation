@@ -1,0 +1,72 @@
+esphome:
+  name: weatherstation
+  platform: ESP8266
+  board: d1_mini
+
+logger:
+  level: DEBUG
+
+
+
+# Configure the wifi network for us to connect to
+wifi:
+  networks:
+    - ssid: !secret wifi_ssid
+      password: !secret wifi_passwd
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: !secret ap_ssid
+    password: !secret ap_passwd
+
+# Define the host name or IP address of the MQTT broker to use.
+mqtt:
+  broker: !secret mqtt_broker
+
+# We are not using the ESPHome API - we are using MQTT instead, so API is commented out.
+#api:
+
+# Enable Over the Air updates.
+ota:
+  platform: esphome
+  password: !secret ota_passwd
+
+
+
+
+
+one_wire:
+  - platform: gpio
+    pin: GPIO5
+
+# Note, the device addresses will need to be updated for a new system.
+sensor:
+  - platform: dallas_temp
+    address: 0xec0000044ae39628
+    name: "Outside1"
+    update_interval: 60s
+
+  - platform: dht
+    pin: GPIO4
+    temperature:
+      name: "Outside2"
+    humidity:
+      name: "Humidity"
+    update_interval: 60s
+
+
+#  - platform: pulse_counter
+#    update_interval: 300s
+#    pin: 14
+#    name: "Elecricity_Power"
+#    unit_of_measurement: 'kW'
+#    accuracy_decimals: 2
+#    filters:
+#      - multiply: 0.06  # (60s/1000 pulses per kWh)
+
+#    total:
+#      name: 'Electricity_Energy'
+#      unit_of_measurement: 'kWh'
+#      accuracy_decimals: 2
+#      filters:
+#        - multiply: 0.001  # (1/1000 pulses per kWh)
+
