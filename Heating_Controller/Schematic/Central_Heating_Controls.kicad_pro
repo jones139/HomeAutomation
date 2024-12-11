@@ -386,6 +386,14 @@
     [
       "cd955688-bdae-4275-b855-3d8eea9a4e1c",
       "Root"
+    ],
+    [
+      "6fc99ad4-44e9-47af-98f1-2b02a86ada0e",
+      "Thermostat_Panel"
+    ],
+    [
+      "6431dc80-722e-4c8e-a33f-f85c05982d72",
+      "Valves_Junction_Box"
     ]
   ],
   "text_variables": {}

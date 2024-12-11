@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Boiler Control Panel 1")
-		(date "05/12/2024")
-		(rev "2")
+		(date "11/12/2024")
+		(rev "3")
 	)
 	(lib_symbols
 		(symbol "Connector:Screw_Terminal_01x02"
@@ -1668,6 +1668,12 @@
 		(uuid "304898d0-4208-49ba-bcbd-b457d91cba6a")
 	)
 	(junction
+		(at 148.59 127)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "345e50d7-270d-4614-aa89-9f2cf62ba41c")
+	)
+	(junction
 		(at 148.59 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1728,10 +1734,22 @@
 		(uuid "bb3761ad-09be-4cb5-b6dc-94a580ebcf7e")
 	)
 	(junction
+		(at 148.59 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cc35f522-12ad-45b6-ae70-ad432f15cc18")
+	)
+	(junction
 		(at 76.2 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e1c632f2-0ff4-428f-871f-4156917c481e")
+	)
+	(junction
+		(at 148.59 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f994f60e-c5d3-4fc5-9320-5c318c85de37")
 	)
 	(wire
 		(pts
@@ -1895,7 +1913,7 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 63.5) (xy 251.46 63.5)
+			(xy 133.35 63.5) (xy 148.59 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1915,7 +1933,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 157.48) (xy 148.59 43.18)
+			(xy 148.59 157.48) (xy 148.59 127)
 		)
 		(stroke
 			(width 0)
@@ -1945,7 +1963,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 127) (xy 250.19 127)
+			(xy 132.08 127) (xy 148.59 127)
 		)
 		(stroke
 			(width 0)
@@ -2075,7 +2093,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 27.94) (xy 189.23 43.18)
+			(xy 189.23 36.83) (xy 189.23 43.18)
 		)
 		(stroke
 			(width 0)
@@ -2085,7 +2103,7 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 27.94) (xy 186.69 124.46)
+			(xy 186.69 36.83) (xy 186.69 124.46)
 		)
 		(stroke
 			(width 0)
@@ -2135,6 +2153,16 @@
 	)
 	(wire
 		(pts
+			(xy 148.59 127) (xy 250.19 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ac9e517-0860-4449-a4e5-58dad05b91af")
+	)
+	(wire
+		(pts
 			(xy 90.17 105.41) (xy 90.17 111.76)
 		)
 		(stroke
@@ -2162,6 +2190,16 @@
 			(type default)
 		)
 		(uuid "75e414de-e79d-4529-b392-73404c8e887a")
+	)
+	(wire
+		(pts
+			(xy 148.59 93.98) (xy 148.59 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a2491d3-b9ea-4e26-b7ac-73b694f0bae2")
 	)
 	(wire
 		(pts
@@ -2292,6 +2330,26 @@
 			(type default)
 		)
 		(uuid "98c4c7ad-73b5-4bb4-9ad0-cd066315bdab")
+	)
+	(wire
+		(pts
+			(xy 148.59 127) (xy 148.59 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "991f37a8-171c-46ec-98dc-648dd1ce2b66")
+	)
+	(wire
+		(pts
+			(xy 148.59 63.5) (xy 148.59 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c1a9fab-f2be-46cd-8847-d37c1615ebfc")
 	)
 	(wire
 		(pts
@@ -2465,7 +2523,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 27.94) (xy 184.15 91.44)
+			(xy 184.15 36.83) (xy 184.15 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2525,7 +2583,17 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 27.94) (xy 181.61 60.96)
+			(xy 148.59 93.98) (xy 250.19 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d33d4f91-ba15-4733-8f31-f3c39cb7334b")
+	)
+	(wire
+		(pts
+			(xy 181.61 36.83) (xy 181.61 60.96)
 		)
 		(stroke
 			(width 0)
@@ -2605,7 +2673,17 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 93.98) (xy 250.19 93.98)
+			(xy 148.59 63.5) (xy 251.46 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef964854-f029-49e6-a043-37b3758bccb1")
+	)
+	(wire
+		(pts
+			(xy 133.35 93.98) (xy 148.59 93.98)
 		)
 		(stroke
 			(width 0)
@@ -3642,7 +3720,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x05")
-		(at 186.69 22.86 90)
+		(at 186.69 31.75 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3651,7 +3729,7 @@
 		(fields_autoplaced yes)
 		(uuid "7393b93f-9793-4014-bd2b-79d027588081")
 		(property "Reference" "J4"
-			(at 186.69 16.51 90)
+			(at 186.69 25.4 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3659,7 +3737,7 @@
 			)
 		)
 		(property "Value" "Thermostat Input"
-			(at 186.69 19.05 90)
+			(at 186.69 27.94 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3667,7 +3745,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 186.69 22.86 0)
+			(at 186.69 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3676,7 +3754,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 186.69 22.86 0)
+			(at 186.69 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3685,7 +3763,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 186.69 22.86 0)
+			(at 186.69 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4744,6 +4822,82 @@
 				(path "/cd955688-bdae-4275-b855-3d8eea9a4e1c"
 					(reference "SW6")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet
+		(at 16.51 49.53)
+		(size 16.51 11.43)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "6431dc80-722e-4c8e-a33f-f85c05982d72")
+		(property "Sheetname" "Valves_Junction_Box"
+			(at 16.51 48.8184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Valves_Junction_Box.kicad_sch"
+			(at 16.51 61.5446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Central_Heating_Controls"
+				(path "/cd955688-bdae-4275-b855-3d8eea9a4e1c"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 177.8 13.97)
+		(size 21.59 10.16)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "6fc99ad4-44e9-47af-98f1-2b02a86ada0e")
+		(property "Sheetname" "Thermostat_Panel"
+			(at 177.8 13.2584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Thermostat_Panel.kicad_sch"
+			(at 177.8 24.7146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Central_Heating_Controls"
+				(path "/cd955688-bdae-4275-b855-3d8eea9a4e1c"
+					(page "2")
 				)
 			)
 		)
