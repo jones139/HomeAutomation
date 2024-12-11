@@ -2798,7 +2798,7 @@
 		)
 		(fill
 			(type color)
-			(color 132 132 132 0.52)
+			(color 224 224 224 1)
 		)
 		(uuid 26095f4a-7feb-4d57-b9f3-c7514e2d2088)
 	)
@@ -2811,7 +2811,7 @@
 		)
 		(fill
 			(type color)
-			(color 132 132 132 0.52)
+			(color 224 224 224 1)
 		)
 		(uuid 723e3940-0bd2-4a4d-ad8b-1256c2d29506)
 	)
@@ -2824,7 +2824,7 @@
 		)
 		(fill
 			(type color)
-			(color 132 132 132 0.52)
+			(color 224 224 224 1)
 		)
 		(uuid e7e2025c-3617-44f1-8c37-91fa725da4ac)
 	)
