@@ -6,6 +6,7 @@ Weather Station
   - Wemos D1 Mini ESP8266 development board.
   - Dallas Semiconductors DS18B20 temperature sensor connected to Pin D1 (GPIO5) (with 4k7 pull up resistor to 3.3V line)
   - DHT22 module (which has built-in pullup so no external resistor required), connected to Pin D2 (GPIO4).
+  - BH1750 light sensor module, connected to an I2C bus on GPIO12 (D6) and GPIO14 (D5) for sda and scl respectively.
 
 These are powered using a 5V power supply conneced directly to the 5V pin of the Wemos D1 mini board (we do not use the micro-usb connector for power because it does not fit through the hole in the thermometer screen).
 
