@@ -1,6 +1,11 @@
 # Heating Controller
 
 ## System Overview 
+The central heating system comprises a gas fired system boiler which circulates water around radiators and/or the hot water cylinder heating coil.   It is split into three heating zones plus a separate one for the hot water cylinder.   Each zone is controlled using a spring return zone valve with a 240V motor.   Limit switches on the zone valves provide a 240V signal to indicate that the valve is open.   These 240V signals are used to switch the boiler heat demand contact via a relay.    The boiler heat demand contact is the only action required to make the boiler fire and circulate water, because the system boiler contains the circulating pump so no external pump is needed.
+
+Each of the heating zones has a room thermostat, with radiators in other rooms controlled via Thermostatic Radiator Valves (TRVs).   The room thermostats switch low voltage (12V) signals and a small thermostat relay box in the heating cupboard contains interposing relays to provide the 240V signals needed to power the zone valves.
+
+The control unit described below is provided to allow the central heating and hot water to be controlled via a [Home Assistant](https://www.home-assistant.io/) based control system which can be operated remotely.   The existing hard-wired thermostat system has been provided so that a more 'normal' control system can be used if the computer based one fails.
 
 There are three main parts to the central heating control unit:
   - A Control Panel which:
@@ -8,8 +13,7 @@ There are three main parts to the central heating control unit:
     - has LED indicators to show the actual status of each zone.   
     - provides 240V AC signals to the zone valves via a separate junction box.
     - takes the switched 240V AC signal from the zone valves to switch the boiler demand contacts via a relay.
-  - A 4 channel ESP32 based relay board which provides the computer control functionality vi MQTT messages (see below for details)
-  - An ESP32 based boiler monitor which measures central heating and hot water temperatures and provides these to the server via MQTT messages (it is intened to merge this functionality into the relay board later to reduce the number of microcontrollers in use).
+  - A 4 channel ESP32 based relay board which provides the computer control functionality vi MQTT messages (see below for details), and also monitors some temperatres around the heating water system.
 
 Note that the hot water zone is wired differently to the heating zones - thermostat control utilises the cyliner stat at 240V so there is no need for an interposing relay for thermostat control.   Also the computer control mode does not control the cylinder heating directly, instead the computer controlled relay provides the ability to inhibit hot water heating via the cylinder stat.   This is because the DS18B20 temperature sensor fitted to the cylinder and monitored via the ESP32 board in the control panel has proved to be unreliable so not suitable for a control function at the moment.
 
