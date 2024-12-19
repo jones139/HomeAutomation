@@ -11,8 +11,11 @@ There are three main parts to the central heating control unit:
   - A 4 channel ESP32 based relay board which provides the computer control functionality vi MQTT messages (see below for details)
   - An ESP32 based boiler monitor which measures central heating and hot water temperatures and provides these to the server via MQTT messages (it is intened to merge this functionality into the relay board later to reduce the number of microcontrollers in use).
 
+Note that the hot water zone is wired differently to the heating zones - thermostat control utilises the cyliner stat at 240V so there is no need for an interposing relay for thermostat control.   Also the computer control mode does not control the cylinder heating directly, instead the computer controlled relay provides the ability to inhibit hot water heating via the cylinder stat.   This is because the DS18B20 temperature sensor fitted to the cylinder and monitored via the ESP32 board in the control panel has proved to be unreliable so not suitable for a control function at the moment.
 
 ## Control Panel
+![Control Panel Front](images/Control_Panel_Closeup.jpg)
+
   - The control panel is based around a large junction box from [Screwfix](https://www.screwfix.com/p/british-general-ip55-weatherproof-outdoor-enclosure-270mm-x-180mm-x-135mm/86625).   
   - It has four large four position selector switches from [Ebay](https://www.ebay.co.uk/itm/386674176742)
   - Uses LED based mains indicators from [Amazon](https://www.amazon.co.uk/dp/B09PFMY6YQ?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1)
@@ -29,10 +32,12 @@ There are three main parts to the central heating control unit:
 ![Relay Board Serial Programming](images/Relay_Board_Programming.jpg)
 
 ## Boiler Monitor
+  - The relay board described above is also used for monitoring temperatures around the boiler system.
   - I am using a string of Dallas DS18B20 digital thermometers to monitor the water temperatures in the various zones of our heating system.
   - Initially I had wired it to connect to the nearest GPIO pin to the 3.3V and GND connectors.   This was GPIO34.   Unfortunately I discovered that this pin only works in input mode (see the [pinout](https://mischianti.org/esp32-wroom-32-esp32-s-flash-pinout-specs-and-ide-configuration-1/)) for the ESP32 chip on the relay board.
   - It looks like G27 is the nearest available GPIO pin (because 32, 33, 25 and 26 are used for the relay control - so I used a bigger header connector and G27, along with integral 4k7 resistor as shown below.)
   ![Thermometer Connection](images/thermometer_connection.jpg)
+  - I have had issues with the reliability of the DS18B20 string - they work fine for a while but then stop updating.  I am not sure if this is because of electrical noise from all the mains wiring in the control panel, or if it is a faulty sensor hanging the 1 wire bus.   For the time being I have cut the string of sensors and am only running one on the hot water cylinder to monitor cylinder temperature and to see how long it runs.
 
 ## Images
 
@@ -40,7 +45,10 @@ There are three main parts to the central heating control unit:
 
 ![Control Switch](images/selector_switch.jpg)
 
-### Control Panel Front
+### Control Panel Front with the thermostat relay panel
+
+Our original central heating control system utilised hard wired room thermostats that use 12V DC for control.  The zone valves need 240V AC, so we have a panel containing interposing relays to switch the 240V signal in response to the 12V signals from the thermostats.
+
 ![Control Panel Front](images/Control_Panel_Front.jpg)
 
 ### Control Panel Rear
@@ -48,3 +56,10 @@ There are three main parts to the central heating control unit:
 
 ### Internal Wiring
 ![Internal Wiring](images/Control_Panel_Wiring.jpg)
+
+
+### Zone Valves
+The zone valves are all in the bottom of the heating cupboard with isolation valves either side so we can replace them easily when one fails.
+A simple Honeywell junction box is used to connect the zone valves to a multi-core cable which leads to the main control panel.
+
+![Zone Valves](images/Zone_Valves.jpg)

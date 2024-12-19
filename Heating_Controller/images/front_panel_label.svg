@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="front_panel_label.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="1.1893044"
+     inkscape:cx="606.65713"
+     inkscape:cy="137.0549"
+     inkscape:window-width="1854"
+     inkscape:window-height="1131"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9"
+       units="mm"
+       spacingx="1"
+       spacingy="1" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <rect
+       x="509.33462"
+       y="116.54659"
+       width="265.29426"
+       height="122.70828"
+       id="rect6785" />
+    <rect
+       x="724.52737"
+       y="96.26491"
+       width="90.858651"
+       height="39.715968"
+       id="rect5986" />
+    <rect
+       x="147.52584"
+       y="261.07698"
+       width="179.48057"
+       height="40.967356"
+       id="rect5766" />
+    <rect
+       x="291.57012"
+       y="153.69409"
+       width="131.26436"
+       height="34.342553"
+       id="rect1010" />
+    <rect
+       x="144.39244"
+       y="88.050418"
+       width="504.86772"
+       height="47.460778"
+       id="rect954" />
+    <rect
+       x="291.57013"
+       y="153.69409"
+       width="204.18974"
+       height="24.134379"
+       id="rect1010-3" />
+    <rect
+       x="291.57013"
+       y="153.69409"
+       width="195.92926"
+       height="25.730638"
+       id="rect1010-7" />
+    <rect
+       x="291.57013"
+       y="153.69409"
+       width="182.25924"
+       height="30.102284"
+       id="rect1010-35" />
+    <rect
+       x="147.52583"
+       y="261.07697"
+       width="179.48058"
+       height="40.967358"
+       id="rect5766-9" />
+    <rect
+       x="147.52583"
+       y="261.07697"
+       width="179.48058"
+       height="40.967358"
+       id="rect5766-2" />
+    <rect
+       x="147.52583"
+       y="261.07697"
+       width="179.48058"
+       height="40.967358"
+       id="rect5766-0" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+       id="rect113"
+       width="230"
+       height="60"
+       x="30.068069"
+       y="20.072613" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text952"
+       style="font-size:26.6667px;white-space:pre;shape-inside:url(#rect954);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="144.39258"
+         y="112.31415"
+         id="tspan7562">Heating Controls</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-29.760335,-6.5747365)"
+       id="text1008"
+       style="font-size:16px;white-space:pre;shape-inside:url(#rect1010);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="291.57031"
+         y="168.25136"
+         id="tspan7564">0 - Off</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-18.167634,8.0601702)"
+       id="text1008-6"
+       style="font-size:16px;white-space:pre;shape-inside:url(#rect1010-3);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="291.57031"
+         y="168.25136"
+         id="tspan7566">2 - Thermostat Control</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-20.825097,0.25588356)"
+       id="text1008-5"
+       style="font-size:16px;white-space:pre;shape-inside:url(#rect1010-7);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="291.57031"
+         y="168.25136"
+         id="tspan7568">1 - Computer Control</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-21.217025,14.793422)"
+       id="text1008-62"
+       style="font-size:16px;white-space:pre;shape-inside:url(#rect1010-35);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="291.57031"
+         y="168.25136"
+         id="tspan7570">4 - On (Continuous)</tspan></text>
+    <ellipse
+       style="fill:#9d9d9d;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+       id="path2599"
+       cx="46.951244"
+       cy="51.657387"
+       rx="9.39888"
+       ry="8.7553701" />
+    <rect
+       style="fill:#2c2c2c;fill-opacity:1;stroke:#000000;stroke-width:0.0873447;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4937"
+       width="22.011013"
+       height="3.7755091"
+       x="34.688698"
+       y="49.926918" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,179.60661,0.0669145)"
+       id="text5764"
+       style="font-size:16px;white-space:pre;shape-inside:url(#rect5766);display:inline;fill:#2c2c2c;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="147.52539"
+         y="275.63417"
+         id="tspan7572">Hot Water
+</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-7.9036667,-2.6713662)"
+       id="text5764-1"
+       style="font-size:16px;white-space:pre;shape-inside:url(#rect5766-9);display:inline;fill:#2c2c2c;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="147.52539"
+         y="275.63417"
+         id="tspan7574">Zone 1
+</tspan><tspan
+         x="147.52539"
+         y="295.63417"
+         id="tspan7576">Downstairs</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,114.85637,-2.7573991)"
+       id="text5764-7"
+       style="font-size:16px;white-space:pre;shape-inside:url(#rect5766-2);display:inline;fill:#2c2c2c;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="147.52539"
+         y="275.63417"
+         id="tspan7578">Zone 3
+</tspan><tspan
+         x="147.52539"
+         y="295.63417"
+         id="tspan7580">Back Bed &amp; Kitchen</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,55.856374,-3.0294022)"
+       id="text5764-9"
+       style="font-size:16px;white-space:pre;shape-inside:url(#rect5766-0);display:inline;fill:#2c2c2c;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="147.52539"
+         y="275.63417"
+         id="tspan7582">Zone 2
+</tspan><tspan
+         x="147.52539"
+         y="295.63417"
+         id="tspan7584">Front Bed</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5982"
+       width="40"
+       height="30"
+       x="220.04851"
+       y="20.093418" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,12.915367,1.5894366)"
+       id="text5984"
+       style="font-size:16px;white-space:pre;shape-inside:url(#rect5986);display:inline;fill:#2c2c2c;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="724.52734"
+         y="110.82363"
+         id="tspan7586">Power 
+</tspan><tspan
+         x="724.52734"
+         y="130.82363"
+         id="tspan7588">On/Off</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-12.326182,1.4872891)"
+       id="text6783"
+       style="font-size:12px;white-space:pre;shape-inside:url(#rect6785);fill:#2c2c2c;fill-opacity:1;stroke:#000000;stroke-width:0.377953;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="509.33398"
+         y="127.46538"
+         id="tspan7590">Computer Control uses Home Assistant server </tspan><tspan
+         x="509.33398"
+         y="142.46538"
+         id="tspan7592">to control temperatures.
+</tspan><tspan
+         x="509.33398"
+         y="157.46538"
+         id="tspan7596"><tspan
+   style="font-size:10.6667px"
+   id="tspan7594">(see https://github.com/jones139/HomeAutomation)</tspan>
+</tspan><tspan
+         x="509.33398"
+         y="172.46538"
+         id="tspan7598">
+</tspan><tspan
+         x="509.33398"
+         y="187.46538"
+         id="tspan7600">Thermostat Control uses hard wired </tspan><tspan
+         x="509.33398"
+         y="202.46538"
+         id="tspan7602">thermostats via relays in panel on right.</tspan></text>
+  </g>
+</svg>
