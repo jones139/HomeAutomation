@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Boiler Control Panel 1")
-		(date "11/12/2024")
-		(rev "3")
+		(date "2024-12-19")
+		(rev "4")
 	)
 	(lib_symbols
 		(symbol "Connector:Screw_Terminal_01x02"
@@ -1813,6 +1813,16 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 147.32) (xy 241.3 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "11c7a2fb-281d-404b-8b21-9b86780d092c")
+	)
+	(wire
+		(pts
 			(xy 62.23 63.5) (xy 104.14 63.5)
 		)
 		(stroke
@@ -1830,6 +1840,16 @@
 			(type default)
 		)
 		(uuid "128ae796-befe-4234-9632-32688c187e3c")
+	)
+	(wire
+		(pts
+			(xy 219.71 152.4) (xy 219.71 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12be61c5-4dae-4e89-92e7-27f0f0f61b68")
 	)
 	(wire
 		(pts
@@ -2273,16 +2293,6 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 152.4) (xy 241.3 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9427cbd7-8639-46d7-8d58-780f7cb5924d")
-	)
-	(wire
-		(pts
 			(xy 132.08 157.48) (xy 148.59 157.48)
 		)
 		(stroke
@@ -2563,6 +2573,16 @@
 	)
 	(wire
 		(pts
+			(xy 132.08 152.4) (xy 219.71 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cbd04f9e-0d71-413a-aa5a-f8e182969869")
+	)
+	(wire
+		(pts
 			(xy 148.59 43.18) (xy 156.21 43.18)
 		)
 		(stroke
@@ -2750,6 +2770,26 @@
 		)
 		(uuid ea870a10-98b9-4745-bbaf-99878f8e59cb)
 	)
+	(text_box "Note:  The computer control of Zone 4 (Hot Water) does not \ndirectly switch on the zone, but instead enables control via \nthe cylinder stat. This is because the cylinder temperature \nmonitoring is not sufficienlty reliable to control the system \ndirectly.  \n**The relay is wired so the de-energised state enables the hot \n  water heating. **"
+		(exclude_from_sim no)
+		(at 218.5035 166.1297 0)
+		(size 64.7065 15.4803)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.1588)
+			)
+			(justify left)
+		)
+		(uuid "429d63ff-359c-4662-83cd-bb6c7e572b9d")
+	)
 	(text "ESP32 Wifi Relay Board"
 		(exclude_from_sim no)
 		(at 245.364 31.75 0)
@@ -2759,17 +2799,6 @@
 			)
 		)
 		(uuid "11d3c9c8-845e-4e11-bd3b-7b7214106cfc")
-	)
-	(text "Note:  The computer control of Zone 4 \n(Hot Water) does not directly switch on the zone, \nbut instead enables control via the cylinder stat.\nThis is because the cylinder temperature monitoring\nis not sufficienlty reliable to control the system \ndirectly."
-		(exclude_from_sim no)
-		(at 225.044 173.736 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "15960a92-e357-4761-a193-4c7d33045190")
 	)
 	(text "Front Panel"
 		(exclude_from_sim no)

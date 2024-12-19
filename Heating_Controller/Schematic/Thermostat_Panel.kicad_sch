@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Thermostat Relay Panel")
-		(date "11/12/2024")
-		(rev "3")
+		(date "2024-12-19")
+		(rev "4")
 	)
 	(lib_symbols
 		(symbol "Connector:Screw_Terminal_01x03"

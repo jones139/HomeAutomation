@@ -13,6 +13,8 @@ There are three main parts to the central heating control unit:
 
 Note that the hot water zone is wired differently to the heating zones - thermostat control utilises the cyliner stat at 240V so there is no need for an interposing relay for thermostat control.   Also the computer control mode does not control the cylinder heating directly, instead the computer controlled relay provides the ability to inhibit hot water heating via the cylinder stat.   This is because the DS18B20 temperature sensor fitted to the cylinder and monitored via the ESP32 board in the control panel has proved to be unreliable so not suitable for a control function at the moment.
 
+The schematic for the wiring of the switches and relay board is provided below.
+
 ## Control Panel
 ![Control Panel Front](images/Control_Panel_Closeup.jpg)
 
@@ -40,6 +42,13 @@ Note that the hot water zone is wired differently to the heating zones - thermos
   - I have had issues with the reliability of the DS18B20 string - they work fine for a while but then stop updating.  I am not sure if this is because of electrical noise from all the mains wiring in the control panel, or if it is a faulty sensor hanging the 1 wire bus.   For the time being I have cut the string of sensors and am only running one on the hot water cylinder to monitor cylinder temperature and to see how long it runs.
 
 ## Images
+
+### Wiring Schematic
+
+Click on the image for a higher resolution PDF of the schematic, or refer to the [kicad source](./Schematic/Central_Heating_Controls.kicad_sch).
+
+[![Schematic](images/Control_Panel_Schematic.png)](images/Control_Panel_Schematic.pdf)
+
 
 ### Control Switch
 
