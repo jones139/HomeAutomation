@@ -39,12 +39,12 @@ one_wire:
   - platform: gpio
     pin: GPIO5
 
-#i2c:
-#  - id: bus_a
+i2c:
+  - id: bus_a
 #  # On Wemos D1 Mini, GPIO12=D6, GPIO14=D5
-#    sda: GPIO12
-#    scl: GPIO14
-#    scan: true
+    sda: GPIO12
+    scl: GPIO14
+    scan: true
 
 # Note, the device addresses will need to be updated for a new system.
 sensor:
@@ -61,9 +61,9 @@ sensor:
       name: "Humidity"
     update_interval: 60s
 
-#  - platform: bh1750
-#    name: "Light"
-#    address: 0x23
-#    update_interval: 60s
+  - platform: bh1750
+    name: "Light"
+    address: 0x23
+    update_interval: 60s
 
 
