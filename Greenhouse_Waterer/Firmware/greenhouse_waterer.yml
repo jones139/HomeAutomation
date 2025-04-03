@@ -1,0 +1,139 @@
+#
+#  Boiler Controller ESPHome Configuration
+#  D1 Mini ESP8266 board connected to a gpio extender.
+#
+#  Graham Jones, 2025
+#
+#
+
+
+esphome:
+  name: ghwater
+#  friendly_name: ghwater
+#  on_boot:
+#    priority: -10
+#    then:
+#      - output.turn_on: led_pwm
+#      - output.set_level:
+#          id: led_pwm
+#          level: "50%"
+  
+logger:
+  level: DEBUG
+
+esp8266:
+  board: d1_mini
+  
+# Configure the wifi network for us to connect to
+wifi:
+  networks:
+    - ssid: !secret wifi_ssid
+      password: !secret wifi_passwd
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: !secret ap_ssid
+    password: !secret ap_passwd
+
+# Define the host name or IP address of the MQTT broker to use.
+mqtt:
+  broker: !secret mqtt_broker
+
+# We are not using the ESPHome API - we are using MQTT instead, so API is commented out.
+#api:
+
+# Enable Over the Air updates.
+ota:
+  platform: esphome
+  password: !secret ota_passwd
+
+i2c:
+  sda: GPIO4
+  scl: GPIO5
+  scan: true
+  id: bus_a
+
+pcf8574:
+  - id: 'ext_io'
+    address: 0x20
+    pcf8575: true
+
+
+switch:
+  - platform: gpio
+    name: "rl0"
+    pin:
+      pcf8574: ext_io
+      number: 0
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    name: "rl1"
+    pin:
+      pcf8574: ext_io
+      number: 1
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    name: "rl2"
+    pin:
+      pcf8574: ext_io
+      number: 2
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    name: "rl3"
+    pin:
+      pcf8574: ext_io
+      number: 3
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    name: "rl4"
+    pin:
+      pcf8574: ext_io
+      number: 4
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    name: "rl5"
+    pin:
+      pcf8574: ext_io
+      number: 5
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    name: "rl6"
+    pin:
+      pcf8574: ext_io
+      number: 6
+      mode:
+        output: true
+      inverted: true
+  - platform: gpio
+    name: "rl7"
+    pin:
+      pcf8574: ext_io
+      number: 7
+      mode:
+        output: true
+      inverted: true
+
+  - platform: slow_pwm
+    pin: rl0
+    id: rl0_pwm
+    period: 5s
+
+
+
+
+# Provide a means of re-booting the controller remotely
+button:
+  - platform: restart
+    name: "Reboot"
+
