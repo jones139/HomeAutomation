@@ -9,21 +9,27 @@
 
 esphome:
   name: ghwater
-#  friendly_name: ghwater
-#  on_boot:
-#    priority: -10
-#    then:
-#      - output.turn_on: led_pwm
-#      - output.set_level:
-#          id: led_pwm
-#          level: "50%"
-  
-logger:
-  level: DEBUG
+  on_boot:
+    priority: -10
+    then:
+      - output.turn_off: rl0_pwm
+      - output.turn_off: rl1_pwm
+      - output.set_level:
+          id: rl0_pwm
+          level: "50%"
+      - delay: 2s
+      - output.set_level:
+          id: rl1_pwm
+          level: "20%"
 
 esp8266:
   board: d1_mini
-  
+  #framework: type=arduino
+
+
+logger:
+  level: DEBUG
+
 # Configure the wifi network for us to connect to
 wifi:
   networks:
@@ -46,6 +52,7 @@ ota:
   platform: esphome
   password: !secret ota_passwd
 
+
 i2c:
   sda: GPIO4
   scl: GPIO5
@@ -57,80 +64,73 @@ pcf8574:
     address: 0x20
     pcf8575: true
 
-
-switch:
-  - platform: gpio
-    name: "rl0"
+output:
+  - platform: slow_pwm
     pin:
       pcf8574: ext_io
       number: 0
       mode:
         output: true
       inverted: true
-  - platform: gpio
-    name: "rl1"
+    id: rl0_pwm
+    period: 5s
+    turn_on_action:
+      - switch.turn_on: rl0_pwm_status
+    turn_off_action:
+      - switch.turn_off: rl0_pwm_status
+
+  - platform: slow_pwm
     pin:
       pcf8574: ext_io
       number: 1
       mode:
         output: true
       inverted: true
-  - platform: gpio
-    name: "rl2"
-    pin:
-      pcf8574: ext_io
-      number: 2
-      mode:
-        output: true
-      inverted: true
-  - platform: gpio
-    name: "rl3"
-    pin:
-      pcf8574: ext_io
-      number: 3
-      mode:
-        output: true
-      inverted: true
-  - platform: gpio
-    name: "rl4"
-    pin:
-      pcf8574: ext_io
-      number: 4
-      mode:
-        output: true
-      inverted: true
-  - platform: gpio
-    name: "rl5"
-    pin:
-      pcf8574: ext_io
-      number: 5
-      mode:
-        output: true
-      inverted: true
-  - platform: gpio
-    name: "rl6"
-    pin:
-      pcf8574: ext_io
-      number: 6
-      mode:
-        output: true
-      inverted: true
-  - platform: gpio
-    name: "rl7"
-    pin:
-      pcf8574: ext_io
-      number: 7
-      mode:
-        output: true
-      inverted: true
-
-  - platform: slow_pwm
-    pin: rl0
-    id: rl0_pwm
+    id: rl1_pwm
     period: 5s
+    turn_on_action:
+      - switch.turn_on: rl1_pwm_status
+    turn_off_action:
+      - switch.turn_off: rl1_pwm_status
 
 
 
+# Define a binary sensor to check if all PWM outputs are off
+binary_sensor:
+  - platform: template
+    name: All PWMs Off
+    lambda: |-
+      return !rl0_pwm_status->state && !rl1_pwm_status->state;
+    id: all_pwms_off
+    #update_interval: 1s # Adjust as needed
+    on_press:
+      then:
+        - switch.turn_off: pump_switch
+        - logger.log: "All slow_pwm outputs are off, turning pump off."
+    on_release:
+      then:
+        - switch.turn_on: pump_switch
+        - logger.log: "At least one slow_pwm output is on, pump remains on (or can be turned on independently)."
+# Define a switch to control the pump
+# This switch will be turned off when all slow_pwm outputs are off
+# and can be turned on independently.
+# The pump switch is not directly linked to the slow_pwm outputs.
+# It is controlled by the automation block.
+# The pump switch can be turned on or off independently of the slow_pwm outputs.
+
+switch:
+  - platform: gpio
+    id: pump_switch
+    name: "pump"
+    pin: GPIO2
+  - platform: template
+    id: rl0_pwm_status
+    name: rl0_pwm
+    optimistic: true
+  - platform: template
+    id: rl1_pwm_status
+    name: rl1_pwm
+    optimistic: true
 
 # Provide a means of re-booting the controller remotely
 button:
