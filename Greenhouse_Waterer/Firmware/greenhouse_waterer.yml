@@ -1,5 +1,5 @@
 #
-#  Boiler Controller ESPHome Configuration
+#  Greenhouse Waterer ESPHome Configuration
 #  D1 Mini ESP8266 board connected to a gpio extender.
 #
 #  Graham Jones, 2025
@@ -12,15 +12,15 @@ esphome:
   on_boot:
     priority: -10
     then:
-      - output.turn_off: rl0_pwm
-      - output.turn_off: rl1_pwm
-      - output.set_level:
-          id: rl0_pwm
-          level: "50%"
-      - delay: 2s
-      - output.set_level:
-          id: rl1_pwm
-          level: "20%"
+      #- output.turn_off: rl0_pwm
+      #- output.turn_off: rl1_pwm
+      #- output.set_level:
+      #    id: rl0_pwm
+      #    level: "50%"
+      #- delay: 2s
+      #- output.set_level:
+      #    id: rl1_pwm
+      #    level: "20%"
 
 esp8266:
   board: d1_mini
@@ -93,6 +93,48 @@ output:
     turn_off_action:
       - switch.turn_off: rl1_pwm_status
 
+  - platform: slow_pwm
+    pin:
+      pcf8574: ext_io
+      number: 2
+      mode:
+        output: true
+      inverted: true
+    id: rl2_pwm
+    period: 5s
+    turn_on_action:
+      - switch.turn_on: rl2_pwm_status
+    turn_off_action:
+      - switch.turn_off: rl2_pwm_status
+
+  - platform: slow_pwm
+    pin:
+      pcf8574: ext_io
+      number: 3
+      mode:
+        output: true
+      inverted: true
+    id: rl3_pwm
+    period: 5s
+    turn_on_action:
+      - switch.turn_on: rl3_pwm_status
+    turn_off_action:
+      - switch.turn_off: rl3_pwm_status
+
+  - platform: slow_pwm
+    pin:
+      pcf8574: ext_io
+      number: 4
+      mode:
+        output: true
+      inverted: true
+    id: rl4_pwm
+    period: 5s
+    turn_on_action:
+      - switch.turn_on: rl4_pwm_status
+    turn_off_action:
+      - switch.turn_off: rl4_pwm_status
+
 
 
 # Define a binary sensor to check if all PWM outputs are off
@@ -100,7 +142,7 @@ binary_sensor:
   - platform: template
     name: All PWMs Off
     lambda: |-
-      return !rl0_pwm_status->state && !rl1_pwm_status->state;
+      return !rl0_pwm_status->state && !rl1_pwm_status->state && !rl2_pwm_status->state && !rl3_pwm_status->state && !rl4_pwm_status->state;
     id: all_pwms_off
     #update_interval: 1s # Adjust as needed
     on_press:
@@ -111,18 +153,21 @@ binary_sensor:
       then:
         - switch.turn_on: pump_switch
         - logger.log: "At least one slow_pwm output is on, pump remains on (or can be turned on independently)."
-# Define a switch to control the pump
-# This switch will be turned off when all slow_pwm outputs are off
-# and can be turned on independently.
-# The pump switch is not directly linked to the slow_pwm outputs.
-# It is controlled by the automation block.
-# The pump switch can be turned on or off independently of the slow_pwm outputs.
+
 
 switch:
+  # Define a switch to control the pump
+  # This switch will be turned off when all slow_pwm outputs are off
+  # and can be turned on independently.
+  # The pump switch is not directly linked to the slow_pwm outputs.
+  # It is controlled by the automation block.
+  # The pump switch can be turned on or off independently of the slow_pwm outputs.
   - platform: gpio
     id: pump_switch
     name: "pump"
     pin: GPIO2
+  #
+  # Define pseudo ('template') switches that record the output state of the PWMs
   - platform: template
     id: rl0_pwm_status
     name: rl0_pwm
@@ -131,6 +176,94 @@ switch:
     id: rl1_pwm_status
     name: rl1_pwm
     optimistic: true
+  - platform: template
+    id: rl2_pwm_status
+    name: rl2_pwm
+    optimistic: true
+  - platform: template
+    id: rl3_pwm_status
+    name: rl3_pwm
+    optimistic: true
+  - platform: template
+    id: rl4_pwm_status
+    name: rl4_pwm
+    optimistic: true
+
+
+number:
+  # Define input number definitions that are used to set the PWM values.
+  - platform: template
+    name: 'rl0_pwm_value'
+    id: rl0_pwm_value
+    max_value: 1
+    min_value: 0
+    step: 0.01
+    mode: slider
+    #initial_value: 0.1
+    restore_value: true
+    optimistic: true
+    on_value:    
+      - output.set_level:
+          id: rl0_pwm
+          level: !lambda "return x;"
+  - platform: template
+    name: 'rl1_pwm_value'
+    id: rl1_pwm_value
+    max_value: 1
+    min_value: 0
+    step: 0.01
+    mode: slider
+    #initial_value: 0.1
+    restore_value: true
+    optimistic: true
+    on_value:    
+      - output.set_level:
+          id: rl1_pwm
+          level: !lambda "return x;"
+
+  - platform: template
+    name: 'rl2_pwm_value'
+    id: rl2_pwm_value
+    max_value: 1
+    min_value: 0
+    step: 0.01
+    mode: slider
+    #initial_value: 0.1
+    restore_value: true
+    optimistic: true
+    on_value:    
+      - output.set_level:
+          id: rl2_pwm
+          level: !lambda "return x;"
+  - platform: template
+    name: 'rl3_pwm_value'
+    id: rl3_pwm_value
+    max_value: 1
+    min_value: 0
+    step: 0.01
+    mode: slider
+    #initial_value: 0.1
+    restore_value: true
+    optimistic: true
+    on_value:    
+      - output.set_level:
+          id: rl3_pwm
+          level: !lambda "return x;"
+  - platform: template
+    name: 'rl4_pwm_value'
+    id: rl4_pwm_value
+    max_value: 1
+    min_value: 0
+    step: 0.01
+    mode: slider
+    #initial_value: 0.1
+    restore_value: true
+    optimistic: true
+    on_value:    
+      - output.set_level:
+          id: rl4_pwm
+          level: !lambda "return x;"
+
 
 # Provide a means of re-booting the controller remotely
 button:
