@@ -136,23 +136,82 @@ output:
     turn_off_action:
       - switch.turn_off: rl4_pwm_status
 
+  - platform: slow_pwm
+    pin:
+      pcf8574: ext_io
+      number: 5
+      mode:
+        output: true
+      inverted: true
+    id: rl5_pwm
+    period: 5s
+    turn_on_action:
+      - switch.turn_on: rl5_pwm_status
+    turn_off_action:
+      - switch.turn_off: rl5_pwm_status
 
+  - platform: slow_pwm
+    pin:
+      pcf8574: ext_io
+      number: 6
+      mode:
+        output: true
+      inverted: true
+    id: rl6_pwm
+    period: 5s
+    turn_on_action:
+      - switch.turn_on: rl6_pwm_status
+    turn_off_action:
+      - switch.turn_off: rl6_pwm_status
+
+  - platform: slow_pwm
+    pin:
+      pcf8574: ext_io
+      number: 7
+      mode:
+        output: true
+      inverted: true
+    id: rl7_pwm
+    period: 5s
+    turn_on_action:
+      - switch.turn_on: rl7_pwm_status
+    turn_off_action:
+      - switch.turn_off: rl7_pwm_status
+
+binary_sensor:
+  - platform: gpio
+    id: flow_sensor
+    name: "Flow Sensor"
+    pin:
+      pcf8574: ext_io
+      number: 8
+      mode:
+        input: true
+  #- platform: gpio
+  #  id: level_sensor
+  #  name: "Level Sensor"
+  #  pin:
+  #    pcf8574: ext_io
+  #    number: 9
+  #    mode:
+  #      input: true
 
 # Define a binary sensor to check if all PWM outputs are off
-binary_sensor:
   - platform: template
     name: All PWMs Off
     lambda: |-
-      return !rl0_pwm_status->state && !rl1_pwm_status->state && !rl2_pwm_status->state && !rl3_pwm_status->state && !rl4_pwm_status->state;
+      return !rl0_pwm_status->state && !rl1_pwm_status->state && !rl2_pwm_status->state && !rl3_pwm_status->state && !rl4_pwm_status->state && !rl5_pwm_status->state && !rl6_pwm_status->state && !rl7_pwm_status->state;
     id: all_pwms_off
     #update_interval: 1s # Adjust as needed
     on_press:
       then:
         - switch.turn_off: pump_switch
+        - switch.turn_off: led_indicator
         - logger.log: "All slow_pwm outputs are off, turning pump off."
     on_release:
       then:
         - switch.turn_on: pump_switch
+        - switch.turn_on: led_indicator
         - logger.log: "At least one slow_pwm output is on, pump remains on (or can be turned on independently)."
 
 
@@ -164,10 +223,18 @@ switch:
   # It is controlled by the automation block.
   # The pump switch can be turned on or off independently of the slow_pwm outputs.
   - platform: gpio
-    id: pump_switch
+    id: led_indicator
     name: "pump"
     pin: GPIO2
-  #
+  - platform: gpio
+    id: pump_switch
+    name: "Pump SSR Control"
+    pin:
+      pcf8574: ext_io
+      number: 9
+      mode:
+        output: true
+  
   # Define pseudo ('template') switches that record the output state of the PWMs
   - platform: template
     id: rl0_pwm_status
@@ -188,6 +255,18 @@ switch:
   - platform: template
     id: rl4_pwm_status
     name: rl4_pwm
+    optimistic: true
+  - platform: template
+    id: rl5_pwm_status
+    name: rl5_pwm
+    optimistic: true
+  - platform: template
+    id: rl6_pwm_status
+    name: rl6_pwm
+    optimistic: true
+  - platform: template
+    id: rl7_pwm_status
+    name: rl7_pwm
     optimistic: true
 
 
@@ -265,6 +344,50 @@ number:
           id: rl4_pwm
           level: !lambda "return x;"
 
+  - platform: template
+    name: 'rl5_pwm_value'
+    id: rl5_pwm_value
+    max_value: 1
+    min_value: 0
+    step: 0.01
+    mode: slider
+    #initial_value: 0.1
+    restore_value: true
+    optimistic: true
+    on_value:    
+      - output.set_level:
+          id: rl5_pwm
+          level: !lambda "return x;"
+
+  - platform: template
+    name: 'rl6_pwm_value'
+    id: rl6_pwm_value
+    max_value: 1
+    min_value: 0
+    step: 0.01
+    mode: slider
+    #initial_value: 0.1
+    restore_value: true
+    optimistic: true
+    on_value:    
+      - output.set_level:
+          id: rl6_pwm
+          level: !lambda "return x;"
+
+  - platform: template
+    name: 'rl7_pwm_value'
+    id: rl7_pwm_value
+    max_value: 1
+    min_value: 0
+    step: 0.01
+    mode: slider
+    #initial_value: 0.1
+    restore_value: true
+    optimistic: true
+    on_value:    
+      - output.set_level:
+          id: rl7_pwm
+          level: !lambda "return x;"
 
 # Provide a means of re-booting the controller remotely
 button:
