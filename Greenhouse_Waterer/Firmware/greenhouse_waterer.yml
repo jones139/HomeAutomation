@@ -1,6 +1,10 @@
 #
 #  Greenhouse Waterer ESPHome Configuration
 #  D1 Mini ESP8266 board connected to a gpio extender.
+#  The Extender GPIOs 0-7 are connected to an 8 way relay board.
+#    - 0-6 can be used for watering control.
+#    - 7 is connected to the pump control SSR (because the GPIO extender could
+#        not operate the SSR directly).
 #
 #  Graham Jones, 2025
 #
@@ -164,19 +168,6 @@ output:
     turn_off_action:
       - switch.turn_off: rl6_pwm_status
 
-  - platform: slow_pwm
-    pin:
-      pcf8574: ext_io
-      number: 7
-      mode:
-        output: true
-      inverted: true
-    id: rl7_pwm
-    period: 5s
-    turn_on_action:
-      - switch.turn_on: rl7_pwm_status
-    turn_off_action:
-      - switch.turn_off: rl7_pwm_status
 
 binary_sensor:
   - platform: gpio
@@ -200,7 +191,7 @@ binary_sensor:
   - platform: template
     name: All PWMs Off
     lambda: |-
-      return !rl0_pwm_status->state && !rl1_pwm_status->state && !rl2_pwm_status->state && !rl3_pwm_status->state && !rl4_pwm_status->state && !rl5_pwm_status->state && !rl6_pwm_status->state && !rl7_pwm_status->state;
+      return !rl0_pwm_status->state && !rl1_pwm_status->state && !rl2_pwm_status->state && !rl3_pwm_status->state && !rl4_pwm_status->state && !rl5_pwm_status->state && !rl6_pwm_status->state;
     id: all_pwms_off
     #update_interval: 1s # Adjust as needed
     on_press:
@@ -231,7 +222,7 @@ switch:
     name: "Pump SSR Control"
     pin:
       pcf8574: ext_io
-      number: 9
+      number: 7
       mode:
         output: true
   
@@ -263,10 +254,6 @@ switch:
   - platform: template
     id: rl6_pwm_status
     name: rl6_pwm
-    optimistic: true
-  - platform: template
-    id: rl7_pwm_status
-    name: rl7_pwm
     optimistic: true
 
 
@@ -374,20 +361,6 @@ number:
           id: rl6_pwm
           level: !lambda "return x;"
 
-  - platform: template
-    name: 'rl7_pwm_value'
-    id: rl7_pwm_value
-    max_value: 1
-    min_value: 0
-    step: 0.01
-    mode: slider
-    #initial_value: 0.1
-    restore_value: true
-    optimistic: true
-    on_value:    
-      - output.set_level:
-          id: rl7_pwm
-          level: !lambda "return x;"
 
 # Provide a means of re-booting the controller remotely
 button:
