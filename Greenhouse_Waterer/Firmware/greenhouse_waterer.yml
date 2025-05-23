@@ -178,14 +178,14 @@ binary_sensor:
       number: 8
       mode:
         input: true
-  #- platform: gpio
-  #  id: level_sensor
-  #  name: "Level Sensor"
-  #  pin:
-  #    pcf8574: ext_io
-  #    number: 9
-  #    mode:
-  #      input: true
+  - platform: gpio
+    id: level_sensor
+    name: "Level Sensor"
+    pin:
+      pcf8574: ext_io
+      number: 9
+      mode:
+        input: true
 
 # Define a binary sensor to check if all PWM outputs are off
   - platform: template
@@ -220,6 +220,7 @@ switch:
   - platform: gpio
     id: pump_switch
     name: "Pump SSR Control"
+    inverted: true
     pin:
       pcf8574: ext_io
       number: 7
