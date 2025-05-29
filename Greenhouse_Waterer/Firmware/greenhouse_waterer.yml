@@ -78,7 +78,7 @@ output:
         output: true
       inverted: true
     id: rl0_pwm
-    period: 60s
+    period: 600s
     turn_on_action:
       - switch.turn_on: rl0_pwm_status
     turn_off_action:
@@ -92,7 +92,7 @@ output:
         output: true
       inverted: true
     id: rl1_pwm
-    period: 60s
+    period: 600s
     turn_on_action:
       - switch.turn_on: rl1_pwm_status
     turn_off_action:
@@ -106,7 +106,7 @@ output:
         output: true
       inverted: true
     id: rl2_pwm
-    period: 60s
+    period: 600s
     turn_on_action:
       - switch.turn_on: rl2_pwm_status
     turn_off_action:
@@ -120,7 +120,7 @@ output:
         output: true
       inverted: true
     id: rl3_pwm
-    period: 60s
+    period: 600s
     turn_on_action:
       - switch.turn_on: rl3_pwm_status
     turn_off_action:
@@ -134,7 +134,7 @@ output:
         output: true
       inverted: true
     id: rl4_pwm
-    period: 60s
+    period: 600s
     turn_on_action:
       - switch.turn_on: rl4_pwm_status
     turn_off_action:
@@ -148,7 +148,7 @@ output:
         output: true
       inverted: true
     id: rl5_pwm
-    period: 60s
+    period: 600s
     turn_on_action:
       - switch.turn_on: rl5_pwm_status
     turn_off_action:
@@ -162,7 +162,7 @@ output:
         output: true
       inverted: true
     id: rl6_pwm
-    period: 60s
+    period: 600s
     turn_on_action:
       - switch.turn_on: rl6_pwm_status
     turn_off_action:
