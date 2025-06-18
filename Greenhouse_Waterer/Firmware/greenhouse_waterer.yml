@@ -168,6 +168,17 @@ output:
     turn_off_action:
       - switch.turn_off: rl6_pwm_status
 
+sensor:
+  - platform: adc
+    pin:  A0
+    name: "Water Butt Level"
+    unit_of_measurement: "%"
+    accuracy_decimals: 1
+    samples: 100
+    filters:
+      - multiply: 100.0
+    update_interval: 60s
+
 
 binary_sensor:
   - platform: gpio
